@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Students List</title>
+</head>
+
+<body>
+
+    <h1>All Students</h1>
+
+    <table border="1">
+
+        <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Department</th>
+        </tr>
+
+        {% for student in students %}
+
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.roll_number }}</td>
+            <td>{{ student.department }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

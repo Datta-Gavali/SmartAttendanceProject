@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Student</title>
+</head>
+
+<body>
+
+    <h1>Add Student</h1>
+
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <input type="text" name="name" placeholder="Enter Name">
+
+        <br><br>
+
+        <input type="text" name="roll_number" placeholder="Enter Roll Number">
+
+        <br><br>
+
+        <input type="text" name="department" placeholder="Enter Department">
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+
+</html>
