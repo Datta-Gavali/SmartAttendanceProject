@@ -1,5 +1,5 @@
+from .models import Student, Attendance
 from django.shortcuts import render
-from .models import Student
 
 
 def home(request):
@@ -30,3 +30,24 @@ def student_list(request):
     students = Student.objects.all()
 
     return render(request, "students.html", {"students": students})
+
+
+def mark_attendance(request):
+
+    if request.method == "POST":
+
+        student_id = request.POST["student_id"]
+
+        student = Student.objects.get(id=student_id)
+
+        attendance = Attendance(student=student)
+
+        attendance.save()
+
+        return render(
+            request,
+            "mark_attendance.html",
+            {"message": "Attendance Marked Successfully"},
+        )
+
+    return render(request, "mark_attendance.html")
