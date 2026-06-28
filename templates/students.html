@@ -3,31 +3,83 @@
 
 <head>
     <title>Students List</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: #0072ff;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            text-align: center;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+
+        .back {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>All Students</h1>
+    <h1>Registered Students</h1>
 
-    <table border="1">
+    <table>
 
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Roll Number</th>
             <th>Department</th>
         </tr>
 
         {% for student in students %}
-
         <tr>
+            <td>{{ student.id }}</td>
             <td>{{ student.name }}</td>
             <td>{{ student.roll_number }}</td>
             <td>{{ student.department }}</td>
         </tr>
-
         {% endfor %}
 
     </table>
+
+    <a href="/" class="back">Back Home</a>
 
 </body>
 

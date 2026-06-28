@@ -3,24 +3,103 @@
 
 <head>
     <title>Smart Attendance System</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        #clock {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: block;
+            width: 300px;
+            margin: 15px auto;
+            padding: 18px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e6e6e6;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>AI Smart Attendance Management System</h1>
+    <div class="container">
 
-    <p>Project started successfully</p>
-    <a href="/add-student/">Add Student</a>
+        <h1>Smart Attendance System</h1>
 
-    <br><br>
+        <p id="clock"></p>
 
-    <a href="/students/">View Students</a>
+        <a href="/add-student/" class="btn">Add Student</a>
 
-    <a href="/add-student/">Add Student</a>
+        <a href="/students/" class="btn">View Students</a>
 
-    <br><br>
+        <a href="/start-camera/" class="btn">Mark Attendance</a>
 
-    <a href="/mark-attendance/">Mark Attendance</a>
+        <a href="/attendance-records/" class="btn">Attendance Records</a>
+
+    </div>
+
+    <footer>
+        Developed by Datta Gavali
+    </footer>
+
+
+    <script>
+
+        function updateClock() {
+
+            let now = new Date();
+
+            document.getElementById("clock").innerHTML =
+                now.toLocaleDateString() + " | " +
+                now.toLocaleTimeString();
+
+        }
+
+        setInterval(updateClock, 1000);
+
+        updateClock();
+
+    </script>
+
 </body>
 
 </html>

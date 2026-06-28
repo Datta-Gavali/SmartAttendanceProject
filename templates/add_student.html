@@ -3,35 +3,81 @@
 
 <head>
     <title>Add Student</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px;
+            border: 1px solid gray;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 30px;
+            background: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: green;
+        }
+    </style>
+
 </head>
 
 <body>
 
-    <h1>Add Student</h1>
+    <div class="box">
 
-    {% if message %}
-    <p>{{ message }}</p>
-    {% endif %}
+        <h2>Add Student</h2>
 
-    <form method="POST">
+        <form method="POST">
+            {% csrf_token %}
 
-        {% csrf_token %}
+            <input type="text" name="name" placeholder="Enter Name" required>
 
-        <input type="text" name="name" placeholder="Enter Name">
+            <input type="text" name="roll_number" placeholder="Enter Roll Number" required>
 
-        <br><br>
+            <input type="text" name="department" placeholder="Enter Department" required>
 
-        <input type="text" name="roll_number" placeholder="Enter Roll Number">
+            <br><br>
 
-        <br><br>
+            <button type="submit">Save Student</button>
 
-        <input type="text" name="department" placeholder="Enter Department">
 
-        <br><br>
+            <p>{{ message }}</p>
 
-        <button type="submit">Submit</button>
 
-    </form>
+        </form>
+
+    </div>
 
 </body>
 

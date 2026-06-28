@@ -1,5 +1,7 @@
 from .models import Student, Attendance
 from django.shortcuts import render
+from datetime import date
+import os
 
 
 def home(request):
@@ -39,6 +41,16 @@ def mark_attendance(request):
         student_id = request.POST["student_id"]
 
         student = Student.objects.get(id=student_id)
+        today = date.today()
+
+        already_marked = Attendance.objects.filter(student=student, date=today).exists()
+
+        if already_marked:
+            return render(
+                request,
+                "mark_attendance.html",
+                {"message": "Attendance Already Marked Today"},
+            )
 
         attendance = Attendance(student=student)
 
@@ -51,3 +63,15 @@ def mark_attendance(request):
         )
 
     return render(request, "mark_attendance.html")
+
+
+def attendance_records(request):
+
+    records = Attendance.objects.all()
+
+    return render(request, "attendance_records.html", {"records": records})
+
+
+def start_camera(request):
+    os.system("python recognize_and_mark.py")
+    return render(request, "home.html")

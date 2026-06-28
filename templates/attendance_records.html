@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attendance Records</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            color: #222;
+        }
+
+        table {
+            width: 85%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: #28a745;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            text-align: center;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .back {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 12px;
+            background: #0072ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Attendance Records</h1>
+
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+
+        {% for record in records %}
+        <tr>
+            <td>{{ record.student.name }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.time }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <a href="/" class="back">Back Home</a>
+
+</body>
+
+</html>
